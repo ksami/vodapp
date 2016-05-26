@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import MovieItem from './movie-item.js';
+import { Grid, Row } from 'react-bootstrap';
 
 export default class MoviesList extends Component {
 
   render () {
     const movies = this._getMovies();
     return (
-      <div className="movie-list">
-        <div className="movie-item">{movies}</div>
-      </div>
+      <Grid>
+        <Row>
+          <div className="movie-item">{movies}</div>
+        </Row>
+      </Grid>
     )
   }
 
