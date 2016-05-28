@@ -25,26 +25,49 @@ export default class MoviesList extends Component {
     const movieItems = this.state.movies.map((movie, i) => {
       return (<MovieItem title={movie.title} description={movie.description} image={movie.images[0].url} key={i}/>)
     });
-    let swiper = new Swiper ('.swiper-container', {
-      pagination: '.swiper-pagination',
+    if(movieItems.length > 0){
+      setTimeout(function() {
+        new Swiper ('.swiper-container', {
       direction: 'horizontal',
-      slidesPerView: 1,
+      scrollbar: '.swiper-scrollbar',
+      scrollbarHide: true,
+      scrollbarDraggable: true,
+      slidesPerView: 4,
       paginationClickable: true,
       spaceBetween: 30,
       mousewheelControl: true,
       keyboardControl: true,
+      grabCursor: true,
+      breakpoints: {
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 40
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 30
+            },
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10
+            }
+          },
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev'
-    });
+      });
+      }, 0);
+    }
 
     return (
       <div className="swiper-container">
         <div className="swiper-wrapper">
-          <div className="swiper-slide"><h1>hippo1</h1><img src="http://animal-dream.com/data_images/hippo/hippo6.jpg"/></div>
-          <div className="swiper-slide"><h1>hippo2</h1><img src="http://animal-dream.com/data_images/hippo/hippo6.jpg"/></div>
-          <div className="swiper-slide"><h1>hippo3</h1><img src="http://animal-dream.com/data_images/hippo/hippo6.jpg"/></div>
+          { movieItems }
         </div>
-        <div className="swiper-pagination">Pagination</div>
+        <div className="swiper-scrollbar"></div>
         <div className="swiper-button-next"></div>
         <div className="swiper-button-prev"></div>
       </div>
