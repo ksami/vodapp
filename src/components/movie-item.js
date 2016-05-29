@@ -8,7 +8,7 @@ export default class MovieItem extends Component {
       <div className="swiper-slide">
         <Panel onClick={this._handleClick.bind(this)}>
           <img src={this.props.images[0].url}/>
-          <h3>{this.props.title}</h3>
+          <p>{this.props.title}</p>
         </Panel>
       </div>
     );

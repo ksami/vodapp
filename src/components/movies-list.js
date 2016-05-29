@@ -39,13 +39,15 @@ export default class MoviesList extends Component {
             scrollbar: '.swiper-scrollbar',
             scrollbarHide: true,
             scrollbarDraggable: true,
-            slidesPerView: 4,
+            slidesPerView: 'auto',
+            centeredSlides: false,
+            simulateTouch: true,
+            watchActiveIndex: false,
             paginationClickable: true,
             spaceBetween: 30,
             mousewheelControl: true,
             keyboardControl: true,
-            grabCursor: true,
-            breakpoints: {
+            /*breakpoints: {
               1024: {
                 slidesPerView: 4,
                 spaceBetween: 40
@@ -62,7 +64,7 @@ export default class MoviesList extends Component {
                 slidesPerView: 1,
                 spaceBetween: 10
               }
-            },
+            },*/
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev'
           });

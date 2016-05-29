@@ -7,7 +7,6 @@ export default class MovieView extends Component {
     return (
       <div>
       <Modal show={this.props.showVideo} onHide={this._handleClose.bind(this)}>
-        <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
           <Video controls autoPlay loop ref="video" onProgress={this.onProgress}>
           <source src={this.props.videoUrl} type="video/mp4" />
