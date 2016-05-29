@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import MovieItem from './movie-item.js';
+import MovieView from './movie-view.js';
 import request from 'superagent';
 import Swiper from 'swiper';
-import Video from 'react-html5video';
-import { Modal } from 'react-bootstrap';
 
 export default class MoviesList extends Component {
 
@@ -80,9 +79,7 @@ export default class MoviesList extends Component {
         <div className="swiper-button-next"></div>
         <div className="swiper-button-prev"></div>
       </div>
-      <div>
       { this._playVideo() }
-      </div>
       </div>
     );
   }
@@ -90,19 +87,14 @@ export default class MoviesList extends Component {
   _playVideo() {
     if(this.state.videoUrl){
       return (
-        <Modal show={this.state.showVideo} onHide={this._closeVideo.bind(this)}>
-          <Modal.Header closeButton></Modal.Header>
-          <Modal.Body>
-            <Video controls autoPlay loop muted ref="video" onProgress={this.onProgress}>
-            <source src={this.state.videoUrl} type="video/mp4" />
-            </Video>
-          </Modal.Body>
-        </Modal>
+        <MovieView videoUrl={this.state.videoUrl}
+          showVideo={this.state.showVideo}
+          closeVideo={this._closeVideoView.bind(this)}/>
       );
     }
   }
 
-  _closeVideo(){
+  _closeVideoView(){
     this.setState({showVideo: false});
   }
 
