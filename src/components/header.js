@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { Navbar } from 'react-bootstrap';
 import { Nav, NavItem } from 'react-bootstrap';
 
@@ -8,13 +9,13 @@ export default class Header extends Component {
       <Navbar inverse>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Media App VOD</a>
+            <Link to="/">Media App VOD</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">History</NavItem>
+            <NavItem><Link to="/history">History</Link></NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

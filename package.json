@@ -10,10 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.3",
     "react": "^15.1.0",
     "react-bootstrap": "^0.29.4",
     "react-dom": "^15.0.2",
     "react-html5video": "^1.2.8",
+    "react-router": "^2.4.1",
     "superagent": "^2.0.0-alpha.3",
     "swiper": "^3.3.1"
   },

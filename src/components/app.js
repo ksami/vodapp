@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import Header from './header.js';
-import MoviesList from './movies-list.js'
-
 
 export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header />
-        <MoviesList />
+        <header className="nav-bar">
+          <Header />
+        </header>
+        <main>
+          { this.props.children }
+        </main>
       </div>
     );
   }
