@@ -15,6 +15,6 @@ export default class MovieItem extends Component {
   }
 
   _handleClick(event){
-    this.props.clicked(this.props.contents[0].url);
+    this.props.clicked(this.props.id);
   }
 }

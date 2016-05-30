@@ -12,7 +12,8 @@ export default class MoviesList extends Component {
     this.state = {
       movies: [],
       videoUrl: '',
-      showVideo: false
+      showVideo: false,
+      listOfClickedMovies: []
     };
   }
 
@@ -100,8 +101,13 @@ export default class MoviesList extends Component {
     this.setState({showVideo: false});
   }
 
-  _onClick(videoUrl){
-    this.setState({videoUrl: videoUrl});
+  _onClick(movieId){
+    const clickedMovie = this.state.movies.find((movie) => movie.id === movieId);
+    this.setState({videoUrl: clickedMovie.contents[0].url});
     this.setState({showVideo: true});
+    this.state.listOfClickedMovies.push(clickedMovie.title);
+    this.setState({listOfClickedMovies: this.state.listOfClickedMovies});
+    //console.log(this.state.listOfClickedMovies);
   }
+
 }
