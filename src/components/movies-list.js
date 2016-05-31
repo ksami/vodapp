@@ -3,17 +3,16 @@ import MovieItem from './movie-item.js';
 import MovieView from './movie-view.js';
 import request from 'superagent';
 import Swiper from 'swiper';
+import cookie from 'react-cookie';
 
 export default class MoviesList extends Component {
-
   constructor() {
     super();
 
     this.state = {
       movies: [],
       videoUrl: '',
-      showVideo: false,
-      listOfClickedMovies: []
+      showVideo: false
     };
   }
 
@@ -101,13 +100,15 @@ export default class MoviesList extends Component {
     this.setState({showVideo: false});
   }
 
-  _onClick(movieId){
-    const clickedMovie = this.state.movies.find((movie) => movie.id === movieId);
-    this.setState({videoUrl: clickedMovie.contents[0].url});
+  _onClick(watchedMovie){
+    this.setState({videoUrl: watchedMovie.contents[0].url});
     this.setState({showVideo: true});
-    this.state.listOfClickedMovies.push(clickedMovie.title);
-    this.setState({listOfClickedMovies: this.state.listOfClickedMovies});
-    //console.log(this.state.listOfClickedMovies);
+    request
+    .post('/movie')
+    .send({watchedMovie})
+    .end((err, res) => {
+      console.log('POST successfully');
+    });
   }
 
 }
