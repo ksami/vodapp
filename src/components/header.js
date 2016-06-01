@@ -14,9 +14,9 @@ export default class Header extends Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <Nav pullRight>
-            <NavItem><Link to="/history">History</Link></NavItem>
-          </Nav>
+          <Navbar.Text pullRight>
+            <Link to="/history">History</Link>
+          </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
     )

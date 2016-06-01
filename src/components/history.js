@@ -16,15 +16,15 @@ export default class History extends Component {
     request
     .get('/getHistory')
     .end((err, res) => {
-      if(res.body.length > 0){
+      if(res != null){
         this.setState({ watchedMovies: res.body });
-      } 
+      }
     });
   }
   render () {
-    const listOfWatchedMovies = this.state.watchedMovies.map((movie, i) => {
+    const listOfWatchedMovies = this.state.watchedMovies.map((movie,i) => {
       return (
-        <ListGroupItem>{movie}</ListGroupItem>
+        <ListGroupItem key={i}>{movie}</ListGroupItem>
       );
     });
 
