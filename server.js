@@ -31,6 +31,12 @@ app.get('/getHistory', function (req, res, next){
 
 app.post('/movie', function (req, res, next) {
   //console.log(req.body.watchedMovie);
+  if(typeof req.body.watchedMovie === "undefined" || typeof req.body.watchedMovie.title === "undefined") {
+    // bad request
+    res.sendStatus(400);
+    return;
+  }
+
   var resultArr =[];
   var watchedMovie = req.body.watchedMovie.title;
   if(req.cookies && req.cookies.vodapp){
